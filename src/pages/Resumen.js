@@ -8,27 +8,18 @@ import {
   linearProgressClasses,
   Container,
   Stack,
-  Divider,
   Chip,
+  Tabs,
+  Tab,
 } from "@mui/material";
-import Skill from "../components/Skill";
+import {
+  Favorite as FavoriteIcon,
+  Opacity as OpacityIcon,
+} from "@mui/icons-material";
+import SkillTree from "../components/Resumen.SkillTree";
 
-const basicSkills = [
-  "HTML & CSS",
-  "Python",
-  "C#",
-  "C++",
-  "Javascript",
-  "Typescript",
-  "Bash",
-];
-
-const mobileDevelopment = ["ReactNative"];
-const desktopDevelopment = ["ElectronJS"];
-const frontendDevelopment = ["ReactJS", "NextJS"];
-const backendDevelopment = ["Flask", "ExpressJS", "StrapiJS"];
-const devOps = ["Linux", "Git", "Digital Ocean", "Heroku", "Firebase"];
-const gameDevelopment = ["Unity3D", "Unreal Engine", "Godot", "Blender"];
+import { totalSkillPoints, totalSkills } from "../utils/skills";
+import itemConfig from "../utils/items";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
@@ -41,19 +32,27 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   },
 }));
 
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
+  };
+}
+
 const Profile = () => {
   return (
     <Box
       sx={{
+        p: 3,
         backgroundColor: (theme) => theme.palette.grey[800],
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        boxShadow: (theme) => `0px 0px 10px rgba(255,255,255,0.7)`,
+        borderRadius: 1,
       }}
     >
-      <Divider>
-        <Chip label="Character" />
-      </Divider>
+      <Chip label="Character" />
       <Box
         sx={{
           width: 250,
@@ -70,91 +69,160 @@ const Profile = () => {
           alt="alvaro-pic"
         />
       </Box>
-      <Box>
-        <Typography>Name: Alvaro Martin Caballero</Typography>
-        <Typography>Class: Programmer</Typography>
-        <Typography>Level: 29</Typography>
-        <Typography>Class Level: 4</Typography>
-      </Box>
       <Container maxWidth="md">
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
+          <Typography>Alvaro Martin Caballero</Typography>
+          <Typography>Level: 29</Typography>
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
+          <Typography>Class: Programmer</Typography>
+          <Typography>Class Level: 4</Typography>
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
+          <Typography>Skill points: 0</Typography>
+          <Typography>Points: {totalSkillPoints}</Typography>
+        </Box>
+        <Typography>total Skills: {totalSkills} </Typography>
         <Stack spacing={1}>
-          <LinearProgress
-            variant="determinate"
-            value={100}
-            color="secondary"
+          <Box
             sx={{
-              height: 10,
+              display: "flex",
+              alignItems: "center",
             }}
-          />
-          <LinearProgress
-            variant="determinate"
-            value={100}
+          >
+            <FavoriteIcon color="secondary" />
+            <LinearProgress
+              variant="determinate"
+              value={100}
+              color="secondary"
+              sx={{
+                width: "100%",
+                height: 10,
+                ml: 1,
+              }}
+            />
+          </Box>
+          <Box
             sx={{
-              height: 10,
+              display: "flex",
+              alignItems: "center",
             }}
-          />
-          <BorderLinearProgress variant="determinate" value={75} />
+          >
+            <OpacityIcon color="primary" />
+            <LinearProgress
+              variant="determinate"
+              value={100}
+              sx={{ width: "100%", height: 10, ml: 1 }}
+            />
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <Typography>EXP</Typography>
+            <BorderLinearProgress
+              variant="determinate"
+              value={75}
+              sx={{ width: "100%", ml: 1 }}
+            />
+          </Box>
         </Stack>
       </Container>
     </Box>
   );
 };
 
-const TreeSet = ({ title, skills }) => {
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
+
+const ItemsSet = () => {
   return (
     <Box>
-      <Divider>
-        <Chip label={title} />
-      </Divider>
-      <Grid container>
-        {skills.map((skill) => (
-          <Grid item xs={4} align="center" sx={{ position: "relative" }}>
-            <Divider
+      {itemConfig.map((item) => (
+        <Box
+          sx={{
+            border: `1px solid #fff`,
+            p: 2,
+            m: 1,
+            borderRadius: 1.5,
+          }}
+        >
+          <Box
+            sx={{
+              backgroundColor: "rgba(255, 255, 255, 0.2)",
+              display: "flex",
+            }}
+          >
+            <Box
               sx={{
-                position: "absolute",
-                bottom: "50%",
-                width: "100%",
-                zIndex: -1,
+                m: 1,
+                display: "flex",
+                justifyContent: "center",
+                alignContent: "center",
+                alignItems: "center",
+                justifyItems: "center",
               }}
-            />
-            <Divider
-              orientation="vertical"
+            >
+              <img src={item.icon} alt={item.name} />
+            </Box>
+            <Box
               sx={{
-                position: "absolute",
-                right: "50%",
-                height: "100%",
-                zIndex: -1,
+                p: 1,
+                display: "flex",
+                flexDirection: "column",
+                gap: 1,
               }}
-            />
-            <Skill name={skill} />
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
-  );
-};
-
-const SkillTree = () => {
-  return (
-    <Box
-      sx={{
-        //backgroundColor: (theme) => theme.palette.grey[800],
-        maxHeight: 400,
-        overflowY: "scroll",
-      }}
-    >
-      <TreeSet title="Basic" skills={basicSkills} />
-      <TreeSet title="Frontend development" skills={frontendDevelopment} />
-      <TreeSet title="Backend development" skills={backendDevelopment} />
-      <TreeSet title="Desktop development" skills={desktopDevelopment} />
-      <TreeSet title="Mobile development" skills={mobileDevelopment} />
-      <TreeSet title="Game development" skills={gameDevelopment} />
-      <TreeSet title="DevOps" skills={devOps} />
+            >
+              <Typography>{item.name}</Typography>
+              <Typography>{item.description}</Typography>
+            </Box>
+          </Box>
+        </Box>
+      ))}
     </Box>
   );
 };
 
 const Resumen = () => {
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
   return (
     <Box
       sx={{
@@ -162,11 +230,32 @@ const Resumen = () => {
       }}
     >
       <Grid container spacing={2}>
-        <Grid item xs={4}>
+        <Grid item xs={12} md={4}>
           <Profile />
         </Grid>
-        <Grid item xs={8}>
-          <SkillTree />
+        <Grid item xs={12} md={8}>
+          <Box sx={{ width: "100%" }}>
+            <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+              <Tabs
+                value={value}
+                onChange={handleChange}
+                aria-label="basic tabs example"
+              >
+                <Tab label="Skills" {...a11yProps(0)} />
+                <Tab label="Items" {...a11yProps(1)} />
+                <Tab label="Item Three" {...a11yProps(2)} />
+              </Tabs>
+            </Box>
+            <TabPanel value={value} index={0}>
+              <SkillTree />
+            </TabPanel>
+            <TabPanel value={value} index={1}>
+              <ItemsSet />
+            </TabPanel>
+            <TabPanel value={value} index={2}>
+              Item Three
+            </TabPanel>
+          </Box>
         </Grid>
       </Grid>
     </Box>
