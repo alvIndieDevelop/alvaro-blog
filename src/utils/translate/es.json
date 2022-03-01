@@ -1,0 +1,18 @@
+{
+  "home": "Inicio",
+  "resume": "Resumen",
+  "login": "Iniciar Sesion",
+  "signUp": "Registrarse",
+  "name": "Nombre",
+  "character": "Personaje",
+  "programmer": "programador",
+  "class": "Clase",
+  "level": "Nivel",
+  "classLevel": "Nivel de la clase",
+  "skillPoints": "Puntos de habilidad",
+  "points": "Puntos",
+  "totalSkills": "Cantidad de habilidades",
+
+  "email": "Correo",
+  "password": "Contraseña"
+}

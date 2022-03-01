@@ -1,7 +1,7 @@
 const pasiveSkills = [
   {
     name: "Quick Learning",
-    point: 5,
+    point: 10,
     icon: "/logoIcons/quicklearning.png",
   },
 ];
@@ -55,6 +55,7 @@ const average = (values = []) => {
   return values.reduce(sum, 0) / values.length;
 };
 
+const averagePasiveSkill = average(pasiveSkills).toFixed(2);
 const averageBasicSkill = average(basicSkills).toFixed(2);
 const averageMobileSkill = average(mobileDevelopment).toFixed(2);
 const averageDesktopSkill = average(desktopDevelopment).toFixed(2);
@@ -63,6 +64,7 @@ const averageBackendSkill = average(backendDevelopment).toFixed(2);
 const averageDevOps = average(devOps).toFixed(2);
 const averageGameDevelopmentSkill = average(gameDevelopment).toFixed(2);
 
+export const pasiveSkillPoints = pasiveSkills.reduce(sum, 0);
 export const basicSkillPoints = basicSkills.reduce(sum, 0);
 export const mobileSkillPoints = mobileDevelopment.reduce(sum, 0);
 export const desktopSkillPoints = desktopDevelopment.reduce(sum, 0);
@@ -72,6 +74,7 @@ export const devOpsSkillPoints = devOps.reduce(sum, 0);
 export const gameDevSkillPoints = gameDevelopment.reduce(sum, 0);
 
 const skills = [
+  { set: "Passive", skills: pasiveSkills, average: averagePasiveSkill },
   { set: "Basics", skills: basicSkills, average: averageBasicSkill },
   {
     set: "Frontend Development",

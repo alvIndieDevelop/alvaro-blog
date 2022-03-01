@@ -1,6 +1,8 @@
 import HomePage from "./../pages/Home";
 import ResumenPage from "../pages/Resumen";
 
+import LoginPage from "../pages/auth/Login";
+
 import MainMenu from "./../components/MainMenu";
 
 export const routes = [
@@ -15,6 +17,10 @@ export const routes = [
       {
         path: "/resumen",
         element: <ResumenPage />,
+      },
+      {
+        path: "/login",
+        element: <LoginPage />,
       },
     ],
   },

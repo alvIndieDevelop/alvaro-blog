@@ -11,13 +11,17 @@ const HomeHeader = () => {
         justifyContent: "center",
         alignItems: "center",
         p: 5,
-        height: 500,
       }}
     >
       <Typography
-        variant="h1"
         sx={{
           fontWeight: "bold",
+          fontSize: (theme) => {
+            return {
+              xs: theme.typography.h2.fontSize,
+              md: theme.typography.h1.fontSize,
+            };
+          },
         }}
       >
         Alvaro Martin Caballero
@@ -29,7 +33,6 @@ const HomeHeader = () => {
           m: 3,
           overflow: "hidden",
           borderRadius: "50%",
-          border: "1px solid #000",
         }}
       >
         <img

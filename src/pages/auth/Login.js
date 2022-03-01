@@ -1,7 +1,11 @@
 import React from "react";
 import {} from "firebase/auth";
 
+import { useTranslation } from "react-i18next";
+
 const Login = () => {
+  const { t } = useTranslation();
+
   const [credentials, setCredentials] = React.useState({
     email: "",
     password: "",
@@ -16,7 +20,7 @@ const Login = () => {
 
   return (
     <>
-      <p>Email</p>
+      <p>{t("email")}</p>
       <input type="email" name="email" onChange={onChangeForm} />
       <p>Password</p>
       <input type="password" name="password" onChange={onChangeForm} />
