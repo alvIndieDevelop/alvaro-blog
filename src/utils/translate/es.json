@@ -13,6 +13,18 @@
   "points": "Puntos",
   "totalSkills": "Cantidad de habilidades",
 
+  "username": "Usuario",
+  "firstName": "Primer nombre",
+  "lastName": "Apellido",
   "email": "Correo",
-  "password": "Contraseña"
+  "password": "Contraseña",
+  "confirmPassword": "Confirmar contraseña",
+
+  "required": "Este campo es requerido",
+  "err_string_email": "Introduce un correo",
+  "err_isEmail": "Introduce un correo valido",
+
+  "err_string_password": "Introduce su contraseña",
+  "err_validPassword": "Tiene que ser minimo 8 caracteres",
+  "err_validConfirmPassword": "La contraseña no es igual"
 }

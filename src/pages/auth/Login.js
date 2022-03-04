@@ -22,7 +22,7 @@ const Login = () => {
     <>
       <p>{t("email")}</p>
       <input type="email" name="email" onChange={onChangeForm} />
-      <p>Password</p>
+      <p>{t("password")}</p>
       <input type="password" name="password" onChange={onChangeForm} />
       <button>Login</button>
     </>
