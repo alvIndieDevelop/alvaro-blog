@@ -1,9 +1,10 @@
+import { Navigate } from "react-router-dom";
 import HomePage from "./../pages/Home";
 import ResumenPage from "../pages/Resumen";
-
+import DashboardPage from "../pages/admin/Dashboard";
 import LoginPage from "../pages/auth/Login";
 import RegisterPage from "../pages/auth/Register";
-
+import BlogPage from "./../pages/Blog";
 import MainMenu from "./../components/MainMenu";
 
 export const routes = [
@@ -26,6 +27,20 @@ export const routes = [
       {
         path: "/register",
         element: <RegisterPage />,
+      },
+      {
+        path: "/blog",
+        element: <BlogPage />,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <MainMenu />,
+    children: [
+      {
+        index: true,
+        element: <DashboardPage />,
       },
     ],
   },

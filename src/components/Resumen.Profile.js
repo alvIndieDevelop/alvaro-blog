@@ -66,7 +66,7 @@ const Profile = () => {
           }}
         >
           <Typography>Alvaro Martin Caballero</Typography>
-          <Typography>Level: 29</Typography>
+          <Typography>{t("level")}: 29</Typography>
         </Box>
         <Box
           sx={{
@@ -74,8 +74,10 @@ const Profile = () => {
             justifyContent: "space-between",
           }}
         >
-          <Typography>Class: Programmer</Typography>
-          <Typography>Class Level: 4</Typography>
+          <Typography>
+            {t("class")}: {t("programmer")}
+          </Typography>
+          <Typography>{t("classLevel")}: 4</Typography>
         </Box>
         <Box
           sx={{
@@ -83,10 +85,14 @@ const Profile = () => {
             justifyContent: "space-between",
           }}
         >
-          <Typography>Skill points: 0</Typography>
-          <Typography>Points: {totalSkillPoints}</Typography>
+          <Typography>{t("skillPoints")}: 0</Typography>
+          <Typography>
+            {t("points")}: {totalSkillPoints}
+          </Typography>
         </Box>
-        <Typography>total Skills: {totalSkills} </Typography>
+        <Typography>
+          {t("totalSkills")}: {totalSkills}{" "}
+        </Typography>
         <Stack spacing={1}>
           <Box
             sx={{

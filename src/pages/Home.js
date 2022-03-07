@@ -3,11 +3,14 @@ import React from "react";
 import { Typography, Box } from "@mui/material";
 import ParticlesBg from "particles-bg";
 
+import { useTranslation } from "react-i18next";
+
 // components
 import HomeHeader from "../components/Home.Header";
 import Footer from "../components/Footer";
 
 const Home = () => {
+  const { t } = useTranslation();
   return (
     <>
       <ParticlesBg type="lines" bg={true} />
@@ -25,7 +28,8 @@ const Home = () => {
             p: 5,
           }}
         >
-          <Typography textAlign="center">
+          <Typography textAlign="center">{t("aboutMe")}</Typography>
+          {/* <Typography textAlign="center">
             Sit adipisci soluta. Sint qui cum placeat excepturi quo sunt
             mollitia accusamus. Aut similique qui commodi minima non qui.
             Corrupti cumque velit veritatis aliquam voluptatem ullam quia id
@@ -43,7 +47,7 @@ const Home = () => {
             officiis quo. Reiciendis sint est. Doloremque nesciunt impedit
             reiciendis totam sint vitae quia repellendus non. Sed laborum a. Aut
             minima eligendi magni.
-          </Typography>
+          </Typography> */}
         </Box>
       </Box>
       <Footer />

@@ -20,8 +20,9 @@ export const loginUser = (credentials) => {
   try {
     const userLogin = signInWithEmailAndPassword(auth, email, password);
     console.log(userLogin.user);
+    return true;
   } catch (error) {
     const { code, message } = error;
-    console.log(code, message);
+    return false;
   }
 };

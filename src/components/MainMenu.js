@@ -19,12 +19,15 @@ const MainMenu = () => {
           <Button color="inherit" component={RouterLink} to="/resumen">
             {t("resume")}
           </Button>
-          <Button color="inherit" component={RouterLink} to="/login">
+          <Button color="inherit" component={RouterLink} to="/blog">
+            {t("blog")}
+          </Button>
+          {/* <Button color="inherit" component={RouterLink} to="/login">
             {t("login")}
           </Button>
           <Button color="inherit" component={RouterLink} to="/register">
             {t("signUp")}
-          </Button>
+          </Button> */}
         </Toolbar>
       </AppBar>
       <Outlet />
