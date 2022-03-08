@@ -7,3 +7,8 @@ export const firebase = {
   appId: process.env.REACT_APP_FIREBASE_APP_ID,
   measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
+
+export const contentful = {
+  space: process.env.REACT_APP_CONTENTFUL_SPACE,
+  access_token: process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN,
+};

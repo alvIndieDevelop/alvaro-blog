@@ -1,33 +1,55 @@
-import React, { useEffect, useState } from "react";
-import { Typography, Grid, Divider, Box, Container } from "@mui/material";
+import React from "react";
+import {
+  Typography,
+  Box,
+  Container,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Button,
+} from "@mui/material";
 import Markdown from "../components/Markdown";
-
-import post1 from "../content/blog01.md";
-import post2 from "../content/blog02.md";
-
-import { fileToMarkDown } from "../utils";
+import { usePosts } from "../hooks";
+import { readableDate } from "../utils";
 
 const Blog = () => {
-  const [md, setmd] = useState("");
+  const [posts, isLoading] = usePosts();
 
-  const getFile = async () => {
-    const res = await fileToMarkDown(post2);
-    setmd(res);
+  const renderPost = () => {
+    if (isLoading) return <div>Is loading...</div>;
+
+    return posts.map((post) => {
+      console.log(post.fields.featureImage);
+
+      return (
+        <Card>
+          <CardMedia
+            component="img"
+            src={post.fields.featureImage.fields.file.url}
+            alt={post.fields.title}
+          />
+          <CardContent>
+            <Typography variant="h4">{post.fields.title}</Typography>
+            <Markdown>{post.fields.description}</Markdown>
+            <Typography>{readableDate(post.fields.date)}</Typography>
+          </CardContent>
+          <CardActions>
+            <Button>Leer Mas</Button>
+          </CardActions>
+        </Card>
+      );
+    });
   };
 
-  useEffect(() => {
-    getFile();
-  }, []);
   return (
-    <Container maxWidth="md">
-      <Box
-        sx={{
-          p: 3,
-        }}
-      >
-        <Markdown>{md}</Markdown>
-      </Box>
-    </Container>
+    <Box
+      sx={{
+        p: 3,
+      }}
+    >
+      <Box>{renderPost()}</Box>
+    </Box>
   );
 };
 
