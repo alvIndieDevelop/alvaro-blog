@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { getSingleBlogPost } from "../contentful";
 
-const useSinglePost = () => {
+const useSinglePost = (slug) => {
   const [post, setPost] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getSingleBlogPost()
+    getSingleBlogPost(slug)
       .then((result) => {
         setPost(result[0].fields);
       })

@@ -5,6 +5,7 @@ import DashboardPage from "../pages/admin/Dashboard";
 import LoginPage from "../pages/auth/Login";
 import RegisterPage from "../pages/auth/Register";
 import BlogPage from "./../pages/Blog";
+import ArticlePage from "./../pages/Article";
 import MainMenu from "./../components/MainMenu";
 
 export const routes = [
@@ -31,6 +32,12 @@ export const routes = [
       {
         path: "/blog",
         element: <BlogPage />,
+        children: [
+          {
+            path: "/:slug",
+            element: <ArticlePage />,
+          },
+        ],
       },
     ],
   },

@@ -1,17 +1,8 @@
 import React from "react";
-import {
-  Typography,
-  Box,
-  Container,
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Button,
-} from "@mui/material";
-import Markdown from "../components/Markdown";
+import { Box } from "@mui/material";
 import { usePosts } from "../hooks";
 import { readableDate } from "../utils";
+import CardPost from "../components/CardPost";
 
 const Blog = () => {
   const [posts, isLoading] = usePosts();
@@ -20,24 +11,13 @@ const Blog = () => {
     if (isLoading) return <div>Is loading...</div>;
 
     return posts.map((post) => {
-      console.log(post.fields.featureImage);
-
       return (
-        <Card>
-          <CardMedia
-            component="img"
-            src={post.fields.featureImage.fields.file.url}
-            alt={post.fields.title}
-          />
-          <CardContent>
-            <Typography variant="h4">{post.fields.title}</Typography>
-            <Markdown>{post.fields.description}</Markdown>
-            <Typography>{readableDate(post.fields.date)}</Typography>
-          </CardContent>
-          <CardActions>
-            <Button>Leer Mas</Button>
-          </CardActions>
-        </Card>
+        <CardPost
+          title={post.fields.title}
+          image={post.fields.featureImage.fields.file.url}
+          description={post.fields.description}
+          date={readableDate(post.fields.date)}
+        />
       );
     });
   };
