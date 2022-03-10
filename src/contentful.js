@@ -10,6 +10,6 @@ export const getSingleBlogPost = (slug) =>
   client
     .getEntries({
       "fields.slug": slug,
-      content_type: "Articles",
+      content_type: "articles",
     })
     .then((res) => res.items);

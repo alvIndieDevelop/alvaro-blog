@@ -1,5 +1,5 @@
 import React from "react";
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { usePosts } from "../hooks";
 import { readableDate } from "../utils";
 import CardPost from "../components/CardPost";
@@ -12,12 +12,15 @@ const Blog = () => {
 
     return posts.map((post) => {
       return (
-        <CardPost
-          title={post.fields.title}
-          image={post.fields.featureImage.fields.file.url}
-          description={post.fields.description}
-          date={readableDate(post.fields.date)}
-        />
+        <Grid item xs={12} md={4}>
+          <CardPost
+            title={post.fields.title}
+            image={post.fields.featureImage.fields.file.url}
+            description={post.fields.description}
+            date={readableDate(post.fields.date)}
+            slug={post.fields.slug}
+          />
+        </Grid>
       );
     });
   };
@@ -28,7 +31,7 @@ const Blog = () => {
         p: 3,
       }}
     >
-      <Box>{renderPost()}</Box>
+      <Grid container>{renderPost()}</Grid>
     </Box>
   );
 };

@@ -1,4 +1,3 @@
-import { Navigate } from "react-router-dom";
 import HomePage from "./../pages/Home";
 import ResumenPage from "../pages/Resumen";
 import DashboardPage from "../pages/admin/Dashboard";
@@ -31,10 +30,13 @@ export const routes = [
       },
       {
         path: "/blog",
-        element: <BlogPage />,
         children: [
           {
-            path: "/:slug",
+            index: true,
+            element: <BlogPage />,
+          },
+          {
+            path: "/blog/:slug",
             element: <ArticlePage />,
           },
         ],

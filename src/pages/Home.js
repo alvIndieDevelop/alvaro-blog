@@ -50,7 +50,6 @@ const Home = () => {
           </Typography> */}
         </Box>
       </Box>
-      <Footer />
     </>
   );
 };

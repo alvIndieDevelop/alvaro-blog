@@ -1,6 +1,7 @@
 import React from "react";
 import { AppBar, Toolbar, Button, Typography } from "@mui/material";
 import { Link as RouterLink, Outlet } from "react-router-dom";
+import Footer from "./Footer";
 
 import { useTranslation } from "react-i18next";
 
@@ -31,6 +32,7 @@ const MainMenu = () => {
         </Toolbar>
       </AppBar>
       <Outlet />
+      <Footer />
     </>
   );
 };
