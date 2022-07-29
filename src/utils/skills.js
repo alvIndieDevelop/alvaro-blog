@@ -34,8 +34,7 @@ const frontendDevelopment = [
 ];
 const backendDevelopment = [
   { name: "Flask", point: 5, icon: "/logoIcons/flask.png" },
-  { name: "ExpressJS", point: 6, icon: "/logoIcons/expressjs.png" },
-  { name: "StrapiJS", point: 3, icon: "/logoIcons/strapi.png" },
+  { name: "ExpressJS", point: 7, icon: "/logoIcons/expressjs.png" },
 ];
 const devOps = [
   { name: "Linux", point: 6, icon: "/logoIcons/linux.png" },
