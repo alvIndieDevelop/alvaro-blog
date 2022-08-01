@@ -40,7 +40,6 @@ const devOps = [
   { name: "Linux", point: 6, icon: "/logoIcons/linux.png" },
   { name: "Git", point: 5, icon: "/logoIcons/git.png" },
   { name: "Heroku", point: 5, icon: "/logoIcons/heroku.png" },
-  { name: "Firebase", point: 3, icon: "/logoIcons/firebase.png" },
 ];
 const gameDevelopment = [
   { name: "Unity3D", point: 7, icon: "/logoIcons/unity3d.png" },

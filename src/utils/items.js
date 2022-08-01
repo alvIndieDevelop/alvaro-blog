@@ -3,7 +3,7 @@ const items = [
     name: "Laptop",
     icon: "/logoIcons/laptop.png",
     description:
-      "A simple laptop with Arch Linux as Operative System where i can code freely with VS Code.",
+      "A simple laptop with Linux as Operative System where i can code freely with VS Code.",
   },
   {
     name: "PC",

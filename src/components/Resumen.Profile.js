@@ -90,9 +90,18 @@ const Profile = () => {
             {t("points")}: {totalSkillPoints}
           </Typography>
         </Box>
-        <Typography>
-          {t("totalSkills")}: {totalSkills}{" "}
-        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
+          <Typography>
+            {t("totalSkills")}: {totalSkills}{" "}
+          </Typography>
+          <Typography>{t("guild")}: LHC </Typography>
+        </Box>
+
         <Stack spacing={1}>
           <Box
             sx={{
