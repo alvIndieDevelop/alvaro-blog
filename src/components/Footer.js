@@ -16,6 +16,10 @@ import {
 import Copyright from "./Copyright";
 
 const Footer = () => {
+  const handleClickToWebSite = (url) => {
+    window.open(url, "_blank");
+  };
+
   return (
     <Box
       component="footer"
@@ -58,13 +62,27 @@ const Footer = () => {
               pb: 7,
             }}
           >
-            <IconButton>
+            <IconButton
+              onClick={() => {
+                handleClickToWebSite("https://github.com/alvIndieDevelop");
+              }}
+            >
               <GithubIcon />
             </IconButton>
-            <IconButton>
+            <IconButton
+              onClick={() => {
+                handleClickToWebSite("https://www.linkedin.com/in/alvindie/");
+              }}
+            >
               <LinkedInIcon />
             </IconButton>
-            <IconButton>
+            <IconButton
+              onClick={() => {
+                handleClickToWebSite(
+                  "https://www.instagram.com/alvindiedevelop/"
+                );
+              }}
+            >
               <InstagramIcon />
             </IconButton>
             <IconButton>
