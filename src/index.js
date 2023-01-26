@@ -1,20 +1,21 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
+
 import "./index.css";
-import App from "./App";
+import AppRouter from "./routes/AppRouter";
 import reportWebVitals from "./reportWebVitals";
 import { ThemeProvider, CssBaseline } from "@mui/material";
-import { themeOptions } from "./utils/muiTheme";
-import "./i18n";
+import { themeOptions } from "./config/muiTheme";
+import "./config/i18n";
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
   <React.StrictMode>
     <ThemeProvider theme={themeOptions}>
       <CssBaseline />
-      <App />
+      <AppRouter />
     </ThemeProvider>
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
