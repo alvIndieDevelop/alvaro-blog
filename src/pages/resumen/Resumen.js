@@ -2,10 +2,10 @@ import React from "react";
 import { Grid, Box, Tabs, Tab } from "@mui/material";
 
 // components
-import Profile from "../components/Resumen.Profile";
-import SkillTree from "../components/Resumen.SkillTree";
-import TabPanel from "../components/TapPanel";
-import ItemsSet from "../components/Resumen.ItemsSet";
+import Profile from "./components/Profile";
+import SkillTree from "../../components/Resumen.SkillTree";
+import TabPanel from "../../components/TapPanel";
+import ItemsSet from "../../components/Resumen.ItemsSet";
 
 function a11yProps(index) {
   return {
@@ -27,10 +27,10 @@ const Resumen = () => {
       }}
     >
       <Grid container spacing={2}>
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12}>
           <Profile />
         </Grid>
-        <Grid item xs={12} md={8}>
+        <Grid item xs={12}>
           <Box sx={{ width: "100%" }}>
             <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
               <Tabs

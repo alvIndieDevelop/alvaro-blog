@@ -2,8 +2,7 @@ import React from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 // pages
-import { HomePage } from "../pages";
-import ResumenPage from "../pages/Resumen";
+import { HomePage, ResumenPage } from "../pages";
 import BlogPage from "./../pages/Blog";
 import ArticlePage from "./../pages/Article";
 import MainMenu from "./../components/MainMenu";
