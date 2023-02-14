@@ -11,7 +11,6 @@ const basicSkills = [
   { name: "CSS", point: 7, icon: "/logoIcons/css.png" },
   { name: "Python", point: 5, icon: "/logoIcons/python.png" },
   { name: "C#", point: 4, icon: "/logoIcons/csharp.png" },
-  { name: "C++", point: 3, icon: "/logoIcons/cplusplus.png" },
   { name: "Javascript", point: 8, icon: "/logoIcons/javascript.png" },
   { name: "Typescript", point: 5, icon: "/logoIcons/typescript.png" },
   { name: "Bash", point: 4, icon: "/logoIcons/bash.png" },
@@ -39,12 +38,12 @@ const backendDevelopment = [
 const devOps = [
   { name: "Linux", point: 6, icon: "/logoIcons/linux.png" },
   { name: "Git", point: 5, icon: "/logoIcons/git.png" },
-  { name: "Heroku", point: 5, icon: "/logoIcons/heroku.png" },
+  { name: "AWS", point: 5, icon: "/logoIcons/git.png" },
+  { name: "Netlify", point: 5, icon: "/logoIcons/git.png" },
 ];
 const gameDevelopment = [
   { name: "Unity3D", point: 7, icon: "/logoIcons/unity3d.png" },
   { name: "Unreal Engine", point: 2, icon: "/logoIcons/unreal.png" },
-  { name: "Godot", point: 1, icon: "/logoIcons/godot.png" },
   { name: "Blender", point: 5, icon: "/logoIcons/blender.png" },
 ];
 

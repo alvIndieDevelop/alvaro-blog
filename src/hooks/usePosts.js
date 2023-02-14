@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { getBlogPosts } from "../contentful";
+import { contentful } from "../config";
 
 const usePosts = () => {
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getBlogPosts()
+    contentful
+      .getBlogPosts()
       .then((blogPosts) => {
         setPosts(blogPosts);
       })

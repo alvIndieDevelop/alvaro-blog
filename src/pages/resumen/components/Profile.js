@@ -2,18 +2,19 @@ import React from "react";
 import { styled } from "@mui/material/styles";
 import {
   Box,
-  Chip,
   Container,
   Typography,
   Stack,
   LinearProgress,
   linearProgressClasses,
+  Divider,
 } from "@mui/material";
 import {
   Favorite as FavoriteIcon,
   Opacity as OpacityIcon,
 } from "@mui/icons-material";
-import { totalSkillPoints, totalSkills } from "../utils/skills";
+import { totalSkillPoints, totalSkills } from "../../../utils/skills";
+import { getCurrentAge, getCurrentExperience } from "../../../utils";
 import { useTranslation } from "react-i18next";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
@@ -31,34 +32,32 @@ const Profile = () => {
   const { t } = useTranslation();
   return (
     <Box
-      sx={{
-        p: 3,
-        backgroundColor: (theme) => theme.palette.grey[800],
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        boxShadow: (theme) => `0px 0px 10px rgba(255,255,255,0.7)`,
-        borderRadius: 1,
-      }}
+      display={"flex"}
+      flexDirection={["column", "row"]}
+      alignItems={"center"}
+      border={"1px solid white"}
+      bgcolor={"black"}
     >
-      <Chip label={t("character")} />
       <Box
+        component={"img"}
+        width={250}
+        height={250}
+        src="https://avatars.githubusercontent.com/u/19026389?v=4"
+        alt="alvaro-pic"
+        m={2}
+      />
+      <Divider
+        flexItem
         sx={{
-          width: 250,
-          height: 250,
-          m: 3,
-          overflow: "hidden",
-          borderRadius: "50%",
-          border: "1px solid #000",
+          border: "1px solid white",
+        }}
+      />
+      <Container
+        maxWidth="md"
+        sx={{
+          p: 2,
         }}
       >
-        <img
-          src="https://avatars.githubusercontent.com/u/19026389?v=4"
-          width={250}
-          alt="alvaro-pic"
-        />
-      </Box>
-      <Container maxWidth="md">
         <Box
           sx={{
             display: "flex",
@@ -66,8 +65,11 @@ const Profile = () => {
           }}
         >
           <Typography>Alvaro Martin Caballero</Typography>
-          <Typography>{t("level")}: 29</Typography>
+          <Typography>
+            {t("level")}: {getCurrentAge()}
+          </Typography>
         </Box>
+
         <Box
           sx={{
             display: "flex",
@@ -77,30 +79,18 @@ const Profile = () => {
           <Typography>
             {t("class")}: {t("programmer")}
           </Typography>
-          <Typography>{t("classLevel")}: 4</Typography>
-        </Box>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
-          <Typography>{t("skillPoints")}: 0</Typography>
           <Typography>
-            {t("points")}: {totalSkillPoints}
+            {t("classLevel")}: {getCurrentExperience()}
           </Typography>
         </Box>
-        <Box
+
+        <Divider
+          flexItem
           sx={{
-            display: "flex",
-            justifyContent: "space-between",
+            my: 2,
+            border: "1px solid white",
           }}
-        >
-          <Typography>
-            {t("totalSkills")}: {totalSkills}{" "}
-          </Typography>
-          <Typography>{t("guild")}: LHC </Typography>
-        </Box>
+        />
 
         <Stack spacing={1}>
           <Box
@@ -148,6 +138,36 @@ const Profile = () => {
             />
           </Box>
         </Stack>
+
+        <Divider
+          flexItem
+          sx={{
+            my: 2,
+            border: "1px solid white",
+          }}
+        />
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
+          <Typography>{t("skillPoints")}: 0</Typography>
+          <Typography>
+            {t("points")}: {totalSkillPoints}
+          </Typography>
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
+          <Typography>
+            {t("totalSkills")}: {totalSkills}{" "}
+          </Typography>
+          <Typography>{t("guild")}: LHC </Typography>
+        </Box>
       </Container>
     </Box>
   );

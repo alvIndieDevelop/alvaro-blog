@@ -21,14 +21,7 @@ const Footer = () => {
   };
 
   return (
-    <Box
-      component="footer"
-      sx={{
-        pt: 9,
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
+    <Box component="footer" pt={9} position={"relative"} overflow={"hidden"}>
       <Box
         sx={{
           position: "absolute",
