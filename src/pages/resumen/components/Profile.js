@@ -14,7 +14,11 @@ import {
   Opacity as OpacityIcon,
 } from "@mui/icons-material";
 import { totalSkillPoints, totalSkills } from "../../../utils/skills";
-import { getCurrentAge, getCurrentExperience } from "../../../utils";
+import {
+  getCurrentAge,
+  getCurrentExperience,
+  getPercentOfCurrentYear,
+} from "../../../utils";
 import { useTranslation } from "react-i18next";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
@@ -30,6 +34,11 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 
 const Profile = () => {
   const { t } = useTranslation();
+
+  const currAge = getCurrentAge();
+  const currAgeExp = getCurrentExperience();
+  const currExp = getPercentOfCurrentYear();
+
   return (
     <Box
       display={"flex"}
@@ -53,7 +62,7 @@ const Profile = () => {
         }}
       />
       <Container
-        maxWidth="md"
+        maxWidth="lx"
         sx={{
           p: 2,
         }}
@@ -66,7 +75,7 @@ const Profile = () => {
         >
           <Typography>Alvaro Martin Caballero</Typography>
           <Typography>
-            {t("level")}: {getCurrentAge()}
+            {t("level")}: {currAge}
           </Typography>
         </Box>
 
@@ -80,7 +89,7 @@ const Profile = () => {
             {t("class")}: {t("programmer")}
           </Typography>
           <Typography>
-            {t("classLevel")}: {getCurrentExperience()}
+            {t("classLevel")}: {currAgeExp}
           </Typography>
         </Box>
 
@@ -133,7 +142,7 @@ const Profile = () => {
             <Typography>EXP</Typography>
             <BorderLinearProgress
               variant="determinate"
-              value={75}
+              value={currExp}
               sx={{ width: "100%", ml: 1 }}
             />
           </Box>
