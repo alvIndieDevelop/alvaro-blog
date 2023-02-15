@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 
-import itemConfig from "../utils/items";
+import itemConfig from "../../../utils/items";
 
 const ItemsSet = () => {
   return (

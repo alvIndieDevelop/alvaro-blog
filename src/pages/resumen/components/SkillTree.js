@@ -1,8 +1,8 @@
 import React from "react";
 import { Box } from "@mui/material";
-import TreeSet from "./Resumen.TreeSet";
+import TreeSet from "./TreeSet";
 
-import skillsConfig from "../utils/skills";
+import skillsConfig from "../../../utils/skills";
 
 const SkillTree = () => {
   return (
