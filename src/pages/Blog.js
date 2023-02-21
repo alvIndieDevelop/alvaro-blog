@@ -1,37 +1,50 @@
 import React from "react";
-import { Box, Grid } from "@mui/material";
-import { usePosts } from "../hooks";
-import { readableDate } from "../utils";
-import CardPost from "../components/CardPost";
+import {
+  Box,
+  Typography,
+  Grid,
+  Container,
+  Button,
+  Card,
+  CardMedia,
+  CardActions,
+  CardContent,
+} from "@mui/material";
+import ReactMarkdown from "react-markdown";
+import postList from "../posts.json";
 
 const Blog = () => {
-  const [posts, isLoading] = usePosts();
-
-  const renderPost = () => {
-    if (isLoading) return <div>Is loading...</div>;
-
-    return posts.map((post) => {
-      return (
-        <Grid item xs={12} md={4}>
-          <CardPost
-            title={post.fields.title}
-            image={post.fields.featureImage.fields.file.url}
-            description={post.fields.description}
-            date={readableDate(post.fields.date)}
-            slug={post.fields.slug}
-          />
-        </Grid>
-      );
-    });
-  };
-
   return (
-    <Box
-      sx={{
-        p: 3,
-      }}
-    >
-      <Grid container>{renderPost()}</Grid>
+    <Box p={2}>
+      <Container>
+        <Grid container spacing={2}>
+          {postList.map((post) => (
+            <Grid item xs={12} md={6} key={post.id}>
+              <Card>
+                <CardMedia
+                  component="img"
+                  image={post.thumbnail}
+                  width={"100%"}
+                  height={300}
+                />
+                <CardContent>
+                  <Typography variant="h5" fontWeight={"bold"}>
+                    {post.title}
+                  </Typography>
+                  <div>{post.author}</div>
+                  <ReactMarkdown>{`${post.content.slice(
+                    0,
+                    240
+                  )}...`}</ReactMarkdown>
+                </CardContent>
+                <CardActions>
+                  <Button>Leer mas</Button>
+                </CardActions>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
     </Box>
   );
 };
