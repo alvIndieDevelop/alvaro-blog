@@ -1,4 +1,4 @@
-import { Box, Chip, Grid, Typography } from "@mui/material";
+import { Box, Divider, Grid, Typography } from "@mui/material";
 import React from "react";
 
 import skillsConfig from "../../utils/skills";
@@ -6,17 +6,23 @@ import skillsConfig from "../../utils/skills";
 const Skills = () => {
   return (
     <Box>
-      <Box>
+      <Grid container spacing={2}>
         {skillsConfig.map((skillset) => (
-          <Box key={skillset.set}>
-            <Typography fontWeight={"bold"} align="center">
+          <Grid item xs={12} md={6} key={skillset.set}>
+            <Typography variant="h5" fontWeight={"bold"} align="center">
               {skillset.set}
             </Typography>
+            <Divider
+              flexItem
+              sx={{
+                mb: 2,
+              }}
+            />
             <Grid container>
               {skillset.skills.map((skill) => (
                 <Grid
                   item
-                  xs={12}
+                  xs={6}
                   md={2}
                   key={skill.name}
                   alignContent={"center"}
@@ -49,9 +55,9 @@ const Skills = () => {
                 </Grid>
               ))}
             </Grid>
-          </Box>
+          </Grid>
         ))}
-      </Box>
+      </Grid>
     </Box>
   );
 };
