@@ -3,9 +3,10 @@ import { Grid, Box, Tabs, Tab } from "@mui/material";
 
 // components
 import Profile from "./components/Profile";
-import SkillTree from "../../components/Resumen.SkillTree";
 import TabPanel from "../../components/TapPanel";
-import ItemsSet from "../../components/Resumen.ItemsSet";
+import ItemsSet from "./components/ItemsSet";
+
+import { Skills } from "../../modules";
 
 function a11yProps(index) {
   return {
@@ -43,7 +44,7 @@ const Resumen = () => {
               </Tabs>
             </Box>
             <TabPanel value={value} index={0}>
-              <SkillTree />
+              <Skills />
             </TabPanel>
             <TabPanel value={value} index={1}>
               <ItemsSet />
