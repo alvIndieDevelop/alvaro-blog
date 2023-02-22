@@ -18,7 +18,7 @@ const AppRouter = () => {
           <Route path="resumen" element={<ResumenPage />} />
           <Route path="blog">
             <Route index path="" element={<BlogPage />} />
-            <Route path=":slug" element={<ArticlePage />} />
+            <Route path=":id" element={<ArticlePage />} />
           </Route>
         </Route>
       </Routes>
