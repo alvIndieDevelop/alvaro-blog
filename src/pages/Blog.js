@@ -1,17 +1,7 @@
 import React from "react";
-import {
-  Box,
-  Typography,
-  Grid,
-  Container,
-  Button,
-  Card,
-  CardMedia,
-  CardActions,
-  CardContent,
-} from "@mui/material";
-import ReactMarkdown from "react-markdown";
+import { Box, Grid, Container } from "@mui/material";
 import postList from "../posts.json";
+import CardPost from "../components/CardPost";
 
 const Blog = () => {
   return (
@@ -20,27 +10,14 @@ const Blog = () => {
         <Grid container spacing={2}>
           {postList.map((post) => (
             <Grid item xs={12} md={6} key={post.id}>
-              <Card>
-                <CardMedia
-                  component="img"
-                  image={post.thumbnail}
-                  width={"100%"}
-                  height={300}
-                />
-                <CardContent>
-                  <Typography variant="h5" fontWeight={"bold"}>
-                    {post.title}
-                  </Typography>
-                  <div>{post.author}</div>
-                  <ReactMarkdown>{`${post.content.slice(
-                    0,
-                    240
-                  )}...`}</ReactMarkdown>
-                </CardContent>
-                <CardActions>
-                  <Button>Leer mas</Button>
-                </CardActions>
-              </Card>
+              <CardPost
+                title={post.title}
+                image={post.thumbnail}
+                author={post.author}
+                description={`${post.content.slice(0, 240)}...`}
+                date={post.date}
+                slug={post.id}
+              />
             </Grid>
           ))}
         </Grid>

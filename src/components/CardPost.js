@@ -11,13 +11,22 @@ import {
 import Markdown from "./Markdown";
 
 const CardPost = (props) => {
-  const { title, image, description, date, slug } = props;
+  const { title, image, author, description, date, slug } = props;
   return (
     <Card>
-      <CardMedia component="img" src={image} alt={title} />
+      <CardMedia
+        component="img"
+        image={image}
+        alt={title}
+        width={"100%"}
+        height={300}
+      />
       <CardContent>
-        <Typography variant="h4">{title}</Typography>
-        <Typography>{date}</Typography>
+        <Typography variant="h5" fontWeight={"bold"}>
+          {title}
+        </Typography>
+        <Typography>{author}</Typography>
+        <Typography variant="caption">{date}</Typography>
         <Markdown>{description}</Markdown>
       </CardContent>
       <CardActions>
