@@ -1,12 +1,14 @@
 import React from "react";
 import { Link as RouterLink } from "react-router-dom";
 import {
+  Box,
   Card,
   CardMedia,
   CardContent,
   Typography,
   CardActions,
   Button,
+  Divider,
 } from "@mui/material";
 import Markdown from "./Markdown";
 
@@ -19,7 +21,7 @@ const CardPost = (props) => {
         image={image}
         alt={title}
         width={"100%"}
-        height={300}
+        height={"100%"}
       />
       <CardContent>
         <Typography variant="h5" fontWeight={"bold"}>
@@ -27,7 +29,14 @@ const CardPost = (props) => {
         </Typography>
         <Typography>{author}</Typography>
         <Typography variant="caption">{date}</Typography>
-        <Markdown>{description}</Markdown>
+        <Divider
+          sx={{
+            my: 2,
+          }}
+        />
+        <Box>
+          <Markdown>{description}</Markdown>
+        </Box>
       </CardContent>
       <CardActions>
         <Button component={RouterLink} to={`/blog/${slug}`}>

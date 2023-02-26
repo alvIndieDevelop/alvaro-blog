@@ -13,6 +13,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
     "date-fns": "^2.29.3",
+    "firebase": "^9.17.1",
     "formik": "^2.2.9",
     "i18next": "^22.4.9",
     "markdown-to-jsx": "^7.1.8",
@@ -24,6 +25,7 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.7.0",
     "react-scripts": "5.0.1",
+    "reactfire": "^4.0.0-rc.2",
     "sweetalert": "^2.1.2",
     "web-vitals": "^3.1.1",
     "yup": "^0.32.11"
