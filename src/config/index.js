@@ -1,4 +1,4 @@
-import contentful from "./contentful";
 import i18next from "./i18n";
+import firebaseConfig from "./firebase";
 
-export { contentful, i18next };
+export { i18next, firebaseConfig };
