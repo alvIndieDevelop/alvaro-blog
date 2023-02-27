@@ -3,11 +3,20 @@ import React from "react";
 import { Typography, Box, Container, Grid } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
+// firebase
+import { logEvent } from "firebase/analytics";
+import { analytics } from "../../config/firebase";
+
 // components
 import HomeHeader from "./components/Header";
 
 const Home = () => {
   const { t } = useTranslation();
+
+  React.useEffect(() => {
+    logEvent(analytics, "homepage_visited");
+  }, []);
+
   return (
     <>
       <HomeHeader />
