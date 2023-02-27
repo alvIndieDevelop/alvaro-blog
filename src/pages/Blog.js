@@ -1,9 +1,17 @@
 import React from "react";
 import { Box, Grid, Container } from "@mui/material";
+
+// firebase
+import { logEvent } from "firebase/analytics";
+import { analytics } from "../config/firebase";
+
 import postList from "../posts.json";
 import CardPost from "../components/CardPost";
 
 const Blog = () => {
+  React.useEffect(() => {
+    logEvent(analytics, "blogpage_visited");
+  }, []);
   return (
     <Box p={2}>
       <Container>

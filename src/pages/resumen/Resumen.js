@@ -1,6 +1,10 @@
 import React from "react";
 import { Grid, Box, Tabs, Tab } from "@mui/material";
 
+// firebase
+import { logEvent } from "firebase/analytics";
+import { analytics } from "../../config/firebase";
+
 // components
 import Profile from "./components/Profile";
 import TabPanel from "../../components/TapPanel";
@@ -21,6 +25,11 @@ const Resumen = () => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  React.useEffect(() => {
+    logEvent(analytics, "resumenpage_visited");
+  }, []);
+
   return (
     <Box
       sx={{

@@ -1,6 +1,11 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { Box, Typography, Container, Divider } from "@mui/material";
+
+// firebase
+import { logEvent } from "firebase/analytics";
+import { analytics } from "../config/firebase";
+
 import { useSinglePost } from "../hooks";
 import Markdown from "react-markdown";
 
@@ -33,6 +38,10 @@ const Article = () => {
       </Container>
     );
   };
+
+  React.useEffect(() => {
+    logEvent(analytics, `article_${id}_page_visited`);
+  }, [id]);
 
   return <Box my={10}>{renderPost()}</Box>;
 };
