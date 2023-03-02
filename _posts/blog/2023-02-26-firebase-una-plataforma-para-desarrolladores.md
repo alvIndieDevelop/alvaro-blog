@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: "Firebase: Una plataforma para desarrolladores"
+title: Firebase. Una plataforma para desarrolladores
 author: Alvaro Martin Caballero
 category:
   - Desarrollo web
